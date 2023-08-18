@@ -1,9 +1,35 @@
-#container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+.calculator {
+  display: grid;
+  grid-template-rows: auto 1fr; /* Auto for display, 1fr for buttons */
+  width: 50%; /* Adjust the width as desired */
+  margin: auto; /* Center horizontally */
+  margin-top: 20vh; /* Center vertically with top margin */
+  gap: 10px;
+}
+
+.display {
+  padding: 20px;
+  text-align: right;
+  background-color: #f0f0f0;
+  font-size: 28px;
+  border-bottom: 1px solid #ccc;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
 }
 
 .button {
-    border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  height: 70px;
+  background-color: #e0e0e0;
+  border: 1px solid black;
+  cursor: pointer;
 }
