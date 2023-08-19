@@ -27,7 +27,7 @@ function buttonClick(buttonValue) {
 
     } else if (buttonValue === '+' || buttonValue === '-' || buttonValue === '*' || buttonValue === '/') {
         if (a !== '' && b !== '' && operator !== '') {
-            result = calculate (parseFloat(a), parseFloat(b), operator);
+            result = calculate(parseFloat(a), parseFloat(b), operator);
             display.textContent = `${result} ${buttonValue}`;
             a = result.toString();
             b = '';
@@ -42,7 +42,6 @@ function buttonClick(buttonValue) {
         if (a !== '' && b !== '' && operator !== '') {
             result = calculate(parseFloat(a), parseFloat(b), operator);
             display.textContent = result;
-            // Reset variables for the next calculation
             a = result.toString();
             b = '';
             operator = '';
@@ -51,8 +50,29 @@ function buttonClick(buttonValue) {
     } else if (buttonValue === 'Clear') {
         clearDisplay();
         display.textContent = '0';
+
+    } else if (buttonValue === '.') {
+        if (a !== '' && b !== '' && operator !== '') {
+            display.textContent = `${a} ${operator} ${b}.`
+            b = `${b}.`
+
+        } else {
+            display.textContent = `${a}.`
+            a = `${a}.`
+        }
+
+    } else if (buttonValue === '%') {
+        if (a !== '' && b !== '' && operator !== '') {
+            let result = calculate(parseFloat(a), parseFloat(b), operator);
+            resultPercent = result * .01
+            display.textContent = resultPercent
+    } else {
+        display.textContent = a*.01
+        a = a*.01
+        }
     }
 }
+
 
 function calculate(num1, num2, operator) {
     switch (operator) {
