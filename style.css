@@ -1,9 +1,9 @@
 .calculator {
   display: grid;
-  grid-template-rows: auto 1fr; /* Auto for display, 1fr for buttons */
-  width: 50%; /* Adjust the width as desired */
-  margin: auto; /* Center horizontally */
-  margin-top: 20vh; /* Center vertically with top margin */
+  grid-template-rows: auto 1fr; 
+  width: 50%; 
+  margin: auto; 
+  margin-top: 20vh; 
   gap: 10px;
 }
 
@@ -32,4 +32,8 @@
   background-color: #e0e0e0;
   border: 1px solid black;
   cursor: pointer;
+}
+
+#button-0 {
+    grid-column: span 2;
 }
