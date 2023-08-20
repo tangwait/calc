@@ -4,7 +4,26 @@ let operator = '';
 let result = '';
 let decimalAdded = false;
 
-
+const keyboardMapping = {
+    '0': 'button-0',
+    '1': 'button-1',
+    '2': 'button-2',
+    '3': 'button-3',
+    '4': 'button-4',
+    '5': 'button-5',
+    '6': 'button-6',
+    '7': 'button-7',
+    '8': 'button-8',
+    '9': 'button-9',
+    '.': 'button-deci',
+    '+': 'button-plus',
+    '-': 'button-minus',
+    '*': 'button-multi',
+    '/': 'button-divi',
+    '=': 'button-equal',
+    'Enter': 'button-equal',
+    'Backspace': 'button-clear',
+};
 
 const calc = () => {
     const buttons = document.querySelectorAll('.button');
@@ -13,6 +32,16 @@ const calc = () => {
             const buttonValue = event.target.textContent;
             buttonClick(buttonValue);
         });
+    });
+    document.addEventListener('keydown', event => {
+        const key = event.key;
+        if (keyboardMapping.hasOwnProperty(key)) {
+            const buttonId = keyboardMapping[key];
+            const button = document.getElementById(buttonId);
+            if (button) {
+                buttonClick(button.textContent);
+            }
+        }
     });
 };
 
